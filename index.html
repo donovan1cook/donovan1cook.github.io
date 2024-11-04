@@ -6,5 +6,63 @@
 </head>
 <body>
     <h1>Donovan1Cook</h1>
+        <h2 id="introduction">Introduction</h2>
+        <p>Installing arch is definitely a task and there will most likely be complications. Almost every situation seems to be a few good google searches away. </p>
+        <h2 id="recommendations">Recommendations</h2>
+        <ul>
+        <li>Screenshots are taken periodically but not at every single minor step. </li>
+        <li>I highly recommend vmware pro as it streamlines the snapshot process.</li>
+        <li>Additionally I attempted to verify the initial arch download but was unsuccessful after an hour and a half of attempts and will skip through that step although its highly advised. <h2 id="acquire-an-installation-image">Acquire an installation image</h2>
+        2:51 PM 10/25/2024
+        <a href="https://archlinux.org/download/">https://archlinux.org/download/</a>
+        Scroll to United States - mit.edu
+        Click <a href="https://mirrors.mit.edu/archlinux/iso/2024.10.01/archlinux-2024.10.01-x86_64.iso">archlinux-2024.10.01-x86_64.iso</a>
+        Additionally download the sig file for the next step
+        ![[Pasted image 20241023170353.png]]</li>
+        </ul>
+        <h2 id="1-4-boot-the-live-environment">1.4 Boot the live environment</h2>
+        <p>Using VMWare Workstation Pro 17.1
+        Go to VMWare and hit Create a New Virtual Machine 
+            -&gt;Installer disc image file (iso):
+            -&gt;Browse.. Downloads/archlinux-2024.10.01-x86_64
+            -&gt;Open
+        Go through the wizard and hit finish
+        Run the VM by double clicking it </p>
+        <h2 id="set-the-console-keyboard-layout-and-font">Set the console keyboard layout and font</h2>
+        <p>Changed to a much more readable font using:
+        setfont ter-132n
+        Looks way better in my opinion 
+        ![[Pasted image 20241023180920.png]]</p>
+        <h2 id="very-the-boot-mode">Very the boot mode</h2>
+        <p>Use the command: cat /sys/firmware/efi/fw_platform_size
+        I got the result  64 which is good for my machine
+        ![[Pasted image 20241023181006.png]]</p>
+        <h2 id="connect-to-the-internet">Connect to the internet</h2>
+        <p>Network connection was working as expected
+        ![[Pasted image 20241023181451.png]]</p>
+        <h2 id="update-the-system-clock">Update the system clock</h2>
+        <p>Use the command:
+        timedatectl
+        ![[Pasted image 20241023181601.png]]</p>
+        <h2 id="1-9-partition-the-disks">1.9 Partition the disks</h2>
+        <p>7:46 PM 10/23/2024
+        Start commands : 
+        fdisk /dev/(your_drive)
+        g (create GTI partition table)
+        n (new partition)
+        [enter] (1st partition default)
+        [enter] (auto starting)
+        +550M (550 megabytes)</p>
+        <p>ditto although instead of 550M do +2G
+        then same do [enter] instead of +2G
+        t -&gt;1 -&gt;1
+        t-&gt;2-&gt;19
+        (the third partition is already correct)
+        w (writes table)</p>
+        <h2 id="mounting-the-filesystem-and-downloading-kde-plasma">Mounting the filesystem and downloading KDE Plasma</h2>
+        <p>Doing this was pretty simple as it was just a few commands for mounting
+        Downloading Plasma took a youtube video but I had problems when getting into the desktop
+        After messing with enabling things for an hour or two the fix was creating a new user
+        Signing into this user made everything run smoothly</p>
 </body>
 </html>
